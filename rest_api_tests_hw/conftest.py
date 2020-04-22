@@ -59,6 +59,11 @@ def pytest_addoption(parser):
 
 
 @pytest.fixture(scope="session")
-def api_client(request):
+def api_client_with_key(request):
     base_url = request.config.getoption("--url")
     return ApiClient(base_address=base_url)
+
+
+@pytest.fixture(scope="session")
+def api_client_for_dog():
+    return ApiClient(base_address="https://dog.ceo/api/")
