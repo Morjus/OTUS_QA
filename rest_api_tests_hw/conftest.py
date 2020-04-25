@@ -56,10 +56,14 @@ def pytest_addoption(parser):
                      action="store",
                      default="https://ya.ru/",
                      help="Key for request url.")
+    parser.addoption("--status_code",
+                     action="store",
+                     default=200,
+                     help="Key for status code.")
 
 
 @pytest.fixture(scope="session")
-def api_client_with_key(request):
+def api_client_with_keys(request):
     base_url = request.config.getoption("--url")
     return ApiClient(base_address=base_url)
 
