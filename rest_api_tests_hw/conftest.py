@@ -72,3 +72,8 @@ def api_client_for_dog():
 @pytest.fixture(scope="session")
 def api_jsonplaceholder():
     return ApiClient(base_address="https://jsonplaceholder.typicode.com")
+
+
+@pytest.fixture(scope="session")
+def api_brewery():
+    return ApiClient(base_address="https://api.openbrewerydb.org/")
