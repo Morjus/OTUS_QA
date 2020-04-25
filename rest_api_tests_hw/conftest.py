@@ -67,3 +67,8 @@ def api_client_with_key(request):
 @pytest.fixture(scope="session")
 def api_client_for_dog():
     return ApiClient(base_address="https://dog.ceo/api/")
+
+
+@pytest.fixture(scope="session")
+def api_jsonplaceholder():
+    return ApiClient(base_address="https://jsonplaceholder.typicode.com")
