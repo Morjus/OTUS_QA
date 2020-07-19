@@ -1,0 +1,17 @@
+pipeline {
+  agent { 
+      docker {dockerfile true } 
+  }
+  stages {
+    stage('build') {
+      steps {
+        sh 'pip install -r rest_api_tests_hw/requirements.txt'
+      }
+    }
+    stage('test') {
+      steps {
+        sh 'pytest rest_api_tests_hw/'
+      }   
+    }
+  }
+}
